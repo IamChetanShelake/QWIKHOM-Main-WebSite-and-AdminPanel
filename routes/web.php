@@ -10,13 +10,15 @@ use App\Http\Controllers\PlansController;
 use App\Http\Controllers\ProgressController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContactSubmissionController;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-// Admin Routes
-Route::prefix('admin')->group(function () {
+// Admin Routes (Protected by Authentication)
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     // Hero Section CRUD
@@ -72,3 +74,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/bulk-action', [ContactSubmissionController::class, 'bulkAction'])->name('bulk-action');
     });
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -544,7 +544,28 @@
                     </a>
                 </li>
                 <li class="nav-item" style="padding-bottom: 70px;">
-                    <a class="nav-link" href="#" onclick="logout()">
+                    <a class="nav-link" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                               if(confirm('Are you sure you want to logout?')) {
+                                   var form = document.createElement('form');
+                                   form.method = 'POST';
+                                   form.action = this.href;
+
+                                   var csrfToken = document.createElement('input');
+                                   csrfToken.type = 'hidden';
+                                   csrfToken.name = '_token';
+                                   csrfToken.value = '{{ csrf_token() }}';
+
+                                   var methodField = document.createElement('input');
+                                   methodField.type = 'hidden';
+                                   methodField.name = '_method';
+                                   methodField.value = 'POST';
+
+                                   form.appendChild(csrfToken);
+                                   form.appendChild(methodField);
+                                   document.body.appendChild(form);
+                                   form.submit();
+                               }">
                         <i class="fas fa-sign-out-alt"></i>
                         <span class="nav-text">Logout</span>
                     </a>
