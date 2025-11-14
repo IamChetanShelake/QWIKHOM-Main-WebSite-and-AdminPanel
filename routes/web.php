@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('website.index');
 });
 
 // Admin Routes (Protected by Authentication)
