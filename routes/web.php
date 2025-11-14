@@ -21,10 +21,12 @@ Route::post('/contact', [WebsiteController::class, 'contact'])->name('contact.su
 
 // Admin Routes
 Route::prefix('admin')->group(function () {
+    
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/employees', [EmployeeController::class, 'index'])->name('admin.employees');
     Route::get('/attendance', [AttendanceController::class, 'index'])->name('admin.attendance');
     Route::get('/rules', [RulesController::class, 'index'])->name('admin.rules');
     Route::get('/leave', [LeaveController::class, 'index'])->name('admin.leave');
     Route::get('/holidays', [HolidaysController::class, 'index'])->name('admin.holidays');
+
 });

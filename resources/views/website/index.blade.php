@@ -21,9 +21,10 @@
         </div>
 
         <div class="hero-image-container">
-            <img src="{{ asset('assets/images/bg_element_1.png') }}" class="hero-bg-element1" alt="">
-            <img src="{{ asset('assets/images/bg_element_2.png') }}" class="hero-bg-element2" alt="">
-            <img src="{{ asset('assets/images/hero_image_1.png') }}" class="hero-main-image" alt="QwikHom Services">
+            <img src="{{ asset('assets/images/bannerImg1.png') }}" class="img img-top-right">
+            <img src="{{ asset('assets/images/bannerImg2.png') }}" class="img img-top-left">
+            <img src="{{ asset('assets/images/bannerImg3.png') }}" class="img img-bottom-left">
+            <img src="{{ asset('assets/images/bannerImg4.png') }}" class="img img-bottom-right">
         </div>
     </section>
 
