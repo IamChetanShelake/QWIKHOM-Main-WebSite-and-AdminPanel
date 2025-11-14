@@ -7,10 +7,17 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\RulesController;
 use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\HolidaysController;
+use App\Http\Controllers\website\WebsiteController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [WebsiteController::class, 'index'])->name('home');
+
+
+// Contact routes
+Route::get('/contact', [WebsiteController::class, 'showContact'])->name('contact');
+Route::post('/contact', [WebsiteController::class, 'contact'])->name('contact.submit');
 
 // Admin Routes
 Route::prefix('admin')->group(function () {
