@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HR Admin Panel - Attendance Employee Management System</title>
+    <title>QWIKHOM CMS - Website Content Management System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <style>
         :root {
-            --primary-color: #4eb4e6;
-            --secondary-color: #4a494b;
+            --primary-color: #004271;
+            --secondary-color: #353535;
             --dark-color: #000000;
-            --light-bg: #f8f9fa;
+            --light-bg: #e4f9ff;
             --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
             --border-radius: 15px;
             --sidebar-width: 280px;
@@ -31,7 +32,7 @@
             left: 0;
             height: 100vh;
             width: var(--sidebar-collapsed-width);
-            background: linear-gradient(135deg, var(--secondary-color) 0%, #5a595b 100%);
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #1a1a1a 100%);
             color: white;
             transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1000;
@@ -70,7 +71,7 @@
         }
 
         .sidebar.collapsed:hover .logo-container img {
-            height: 40px;
+            height: 80px;
             margin-bottom: 0.5rem;
         }
 
@@ -127,6 +128,26 @@
             overflow-x: hidden;
         }
 
+        /* Custom scrollbar styling for thicker scrollbar */
+        .sidebar-nav::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .sidebar-nav::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .sidebar-nav::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-nav::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
         .sidebar-footer {
             position: absolute;
             bottom: 0;
@@ -138,8 +159,8 @@
 
         .sidebar-toggle-btn {
             width: 100%;
-            background: rgba(78, 180, 230, 0.1);
-            border: 2px solid rgba(78, 180, 230, 0.3);
+            background: rgba(0, 66, 113, 0.1);
+            border: 2px solid rgba(0, 66, 113, 0.3);
             color: white;
             padding: 0.75rem;
             border-radius: 10px;
@@ -153,7 +174,7 @@
         }
 
         .sidebar-toggle-btn:hover {
-            background: rgba(78, 180, 230, 0.2);
+            background: rgba(0, 66, 113, 0.2);
             border-color: var(--primary-color);
             transform: translateY(-2px);
         }
@@ -206,7 +227,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(78, 180, 230, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(0, 66, 113, 0.2), transparent);
             transition: left 0.5s ease;
         }
 
@@ -215,10 +236,10 @@
         }
 
         .nav-link:hover {
-            background-color: rgba(78, 180, 230, 0.15);
+            background-color: rgba(0, 66, 113, 0.15);
             color: white !important;
             transform: translateX(5px);
-            box-shadow: 0 4px 15px rgba(78, 180, 230, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 66, 113, 0.2);
         }
 
         .sidebar.collapsed .nav-link:hover {
@@ -226,10 +247,10 @@
         }
 
         .nav-link.active {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #3a9bc7 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #002d52 100%);
             color: white !important;
             font-weight: 600;
-            box-shadow: 0 4px 20px rgba(78, 180, 230, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 66, 113, 0.4);
             border: 1px solid rgba(255,255,255,0.1);
         }
 
@@ -290,7 +311,7 @@
         }
 
         .card-header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #3a9bc7 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #002d52 100%);
             color: white;
             border: none;
             padding: 1.5rem;
@@ -303,19 +324,19 @@
         }
 
         .btn-custom {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #3a9bc7 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #002d52 100%);
             border: none;
             color: white;
             padding: 0.75rem 2rem;
             border-radius: 25px;
             font-weight: 500;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(78, 180, 230, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 66, 113, 0.3);
         }
 
         .btn-custom:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(78, 180, 230, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 66, 113, 0.4);
             color: white;
         }
 
@@ -354,7 +375,7 @@
         }
 
         .table tbody tr:hover {
-            background-color: rgba(78, 180, 230, 0.05);
+            background-color: rgba(0, 66, 113, 0.05);
         }
 
         .form-control, .form-select {
@@ -366,7 +387,7 @@
 
         .form-control:focus, .form-select:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(78, 180, 230, 0.25);
+            box-shadow: 0 0 0 0.2rem rgba(0, 66, 113, 0.25);
         }
 
         .rule-card {
@@ -463,8 +484,7 @@
         <div class="sidebar collapsed" id="sidebar">
         <div class="sidebar-header">
             <div class="logo-container">
-                <img src="{{ asset('images/TechMET Logo (2).png') }}" alt="TechMET Logo">
-                <span class="logo-text">HR Admin Panel</span>
+                <img src="{{ asset('images/image 2 1.png') }}" alt="QWIKHOM Logo">
             </div>
         </div>
         <nav class="sidebar-nav">
@@ -476,37 +496,76 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteName() == 'admin.employees' ? 'active' : '' }}" href="{{ route('admin.employees') }}">
-                        <i class="fas fa-users"></i>
-                        <span class="nav-text">Employees</span>
+                    <a class="nav-link {{ Route::currentRouteName() == 'admin.hero.index' || Route::currentRouteName() == 'admin.hero.create' || Route::currentRouteName() == 'admin.hero.show' || Route::currentRouteName() == 'admin.hero.edit' ? 'active' : '' }}" href="{{ route('admin.hero.index') }}">
+                        <i class="fas fa-star"></i>
+                        <span class="nav-text">Hero Section</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteName() == 'admin.attendance' ? 'active' : '' }}" href="{{ route('admin.attendance') }}">
-                        <i class="fas fa-clock"></i>
-                        <span class="nav-text">Attendance</span>
+                    <a class="nav-link {{ Route::currentRouteName() == 'admin.about.index' || Route::currentRouteName() == 'admin.about.create' || Route::currentRouteName() == 'admin.about.show' || Route::currentRouteName() == 'admin.about.edit' ? 'active' : '' }}" href="{{ route('admin.about.index') }}">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="nav-text">About Section</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteName() == 'admin.rules' ? 'active' : '' }}" href="{{ route('admin.rules') }}">
+                    <a class="nav-link {{ Route::currentRouteName() == 'admin.services.index' || Route::currentRouteName() == 'admin.services.create' || Route::currentRouteName() == 'admin.services.show' || Route::currentRouteName() == 'admin.services.edit' ? 'active' : '' }}" href="{{ route('admin.services.index') }}">
                         <i class="fas fa-cogs"></i>
-                        <span class="nav-text">Rules</span>
+                        <span class="nav-text">Services</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteName() == 'admin.leave' ? 'active' : '' }}" href="{{ route('admin.leave') }}">
-                        <i class="fas fa-calendar-times"></i>
-                        <span class="nav-text">Leave</span>
+                    <a class="nav-link {{ Route::currentRouteName() == 'admin.howitworks.index' || Route::currentRouteName() == 'admin.howitworks.create' || Route::currentRouteName() == 'admin.howitworks.show' || Route::currentRouteName() == 'admin.howitworks.edit' ? 'active' : '' }}" href="{{ route('admin.howitworks.index') }}">
+                        <i class="fas fa-play-circle"></i>
+                        <span class="nav-text">How It Works</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteName() == 'admin.holidays' ? 'active' : '' }}" href="{{ route('admin.holidays') }}">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span class="nav-text">Holidays</span>
+                    <a class="nav-link {{ Route::currentRouteName() == 'admin.plans.index' || Route::currentRouteName() == 'admin.plans.create' || Route::currentRouteName() == 'admin.plans.show' || Route::currentRouteName() == 'admin.plans.edit' ? 'active' : '' }}" href="{{ route('admin.plans.index') }}">
+                        <i class="fas fa-tags"></i>
+                        <span class="nav-text">Plans</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="logout()">
+                    <a class="nav-link {{ Route::currentRouteName() == 'admin.progress.index' || Route::currentRouteName() == 'admin.progress.create' || Route::currentRouteName() == 'admin.progress.show' || Route::currentRouteName() == 'admin.progress.edit' ? 'active' : '' }}" href="{{ route('admin.progress.index') }}">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="nav-text">Progress Counter</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::currentRouteName() == 'admin.contact.index' || Route::currentRouteName() == 'admin.contact.create' || Route::currentRouteName() == 'admin.contact.show' || Route::currentRouteName() == 'admin.contact.edit' ? 'active' : '' }}" href="{{ route('admin.contact.index') }}">
+                        <i class="fas fa-address-card"></i>
+                        <span class="nav-text">Contact Info</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Route::currentRouteName() == 'admin.contact-submissions.index' || Route::currentRouteName() == 'admin.contact-submissions.show' ? 'active' : '' }}" href="{{ route('admin.contact-submissions.index') }}">
+                        <i class="fas fa-envelope-open-text"></i>
+                        <span class="nav-text">Contact Submissions</span>
+                    </a>
+                </li>
+                <li class="nav-item" style="padding-bottom: 70px;">
+                    <a class="nav-link" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                               if(confirm('Are you sure you want to logout?')) {
+                                   var form = document.createElement('form');
+                                   form.method = 'POST';
+                                   form.action = this.href;
+
+                                   var csrfToken = document.createElement('input');
+                                   csrfToken.type = 'hidden';
+                                   csrfToken.name = '_token';
+                                   csrfToken.value = '{{ csrf_token() }}';
+
+                                   var methodField = document.createElement('input');
+                                   methodField.type = 'hidden';
+                                   methodField.name = '_method';
+                                   methodField.value = 'POST';
+
+                                   form.appendChild(csrfToken);
+                                   form.appendChild(methodField);
+                                   document.body.appendChild(form);
+                                   form.submit();
+                               }">
                         <i class="fas fa-sign-out-alt"></i>
                         <span class="nav-text">Logout</span>
                     </a>

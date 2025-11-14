@@ -1,17 +1,17 @@
 /* Reset and Base Styles */
 :root {
     --primary-blue: #004271;
-    --light-blue: #E4F9FF;
+    --light-blue: #e4f9ff;
     --dark-text: #000000;
-    --light-text: #FFFFFF;
+    --light-text: #ffffff;
     --grey-text: #707070;
-    --light-grey: #F8F9FA;
-    --border-grey: #D9D9D9;
-    --playfair-display: 'Playfair Display', serif;
-    --dm-sans: 'DM Sans', sans-serif;
-    --inter: 'Inter', sans-serif;
-    --roboto: 'Roboto', sans-serif;
-    --source-sans: 'Source Sans 3', sans-serif;
+    --light-grey: #f8f9fa;
+    --border-grey: #d9d9d9;
+    --playfair-display: "Playfair Display", serif;
+    --dm-sans: "DM Sans", sans-serif;
+    --inter: "Inter", sans-serif;
+    --roboto: "Roboto", sans-serif;
+    --source-sans: "Source Sans 3", sans-serif;
 }
 
 * {
@@ -40,6 +40,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
+    height: 90px;
     z-index: 1000;
 }
 
@@ -47,13 +48,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 90px;
+    position: relative;
+    top: 50px;
+    height: 78px;
     max-width: 1156px;
     padding: 0 20px;
     margin: 0 auto;
     background-color: var(--light-text);
     border-radius: 100px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     box-shadow: 0px 4px 4px rgba(228, 249, 255, 1);
 }
 
@@ -85,7 +88,7 @@ body {
 }
 
 .nav-link.active::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -10px;
     left: 50%;
@@ -223,13 +226,13 @@ body {
 }
 
 .how-it-works-steps::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 11px;
     top: 10px;
     bottom: 10px;
     width: 2px;
-    background-color: #85BDE5;
+    background-color: #85bde5;
 }
 
 .step {
@@ -264,7 +267,6 @@ body {
     color: var(--grey-text);
     line-height: 1.7;
 }
-
 
 /* App Features Section */
 .app-features {
@@ -386,7 +388,11 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #000000 100%);
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        #000000 100%
+    );
     border-radius: 10px;
 }
 
@@ -579,7 +585,7 @@ body {
 .about-contact-widget p:first-child {
     font-family: var(--dm-sans);
     font-size: 16px;
-    color: #626C74;
+    color: #626c74;
 }
 
 .about-contact-widget p:last-child {
