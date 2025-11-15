@@ -4,7 +4,13 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1 class="hero-title">Enjoy the best cleaning & stay safe</h1>
+            <h1 class="hero-title">
+                Enjoy the best cleaning
+                <span class="animated-services">
+                    <span>S</span><span>E</span><span>R</span><span>V</span><span>I</span><span>C</span><span>E</span>
+                </span>
+                & stay safe
+            </h1>
             <p class="hero-description">From leaky taps to deep cleaning, QwikHom is your neighborhood solution for
                 reliable, professional home services — delivered with care, backed by law, and rooted in trust.</p>
             <button class="download-btn">Download App</button>
@@ -22,11 +28,73 @@
 
         <div class="hero-image-container">
             <img src="{{ asset('assets/images/bannerImg1.png') }}" class="img img-top-right">
-            <img src="{{ asset('assets/images/bannerImg2.png') }}" class="img img-top-left">
+            <img src="{{ asset('assets/images/bannerImg4.png') }}" class="img img-top-left">
             <img src="{{ asset('assets/images/bannerImg3.png') }}" class="img img-bottom-left">
-            <img src="{{ asset('assets/images/bannerImg4.png') }}" class="img img-bottom-right">
+            <img src="{{ asset('assets/images/bannerImg2.png') }}" class="img img-bottom-right">
         </div>
     </section>
+
+    {{-- why qwikhom ?  --}}
+    <section class="container my-5 py-5">
+        <div class="row align-items-center">
+
+            <!-- LEFT SIDE -->
+            <div class="col-lg-6 mb-4">
+
+                <!-- Years of Experience -->
+                <h1 class="fw-bold" style="font-weight: 600;font-size:72px;color:#004271;">1+</h1>
+                <p class="text-muted">Years of Experience</p>
+
+                <!-- Images Wrapper -->
+                <div class="position-relative mt-4">
+                    <img src="{{ asset('assets/images/front-view-woman-cleaning-home 1.png') }}" class="img-fluid main-img"
+                        alt="">
+                    <img src="{{ asset('assets/images/women-cleaning.png') }}" class="img-fluid overlay-img" alt="">
+                </div>
+
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="col-lg-6">
+
+                <h3 class="fw-bold mb-3">Why QwikHom?</h3>
+
+                <p class="text-muted">
+                    Many service providers operate as unlicensed freelancers, often not approved by municipal
+                    authorities. QwikHom bridges this gap — offering fully verified, trained, and accountable
+                    professionals.
+                </p>
+
+                <!-- Feature Card 1 -->
+                <div class="p-3 mt-4 feature-box d-flex align-items-start">
+                    <div class="icon-box me-3">
+                        <i class="bi bi-shield-check fs-2"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-semibold">Trusted Experts</h5>
+                        <p class="text-muted mb-0">
+                            All service partners are background-checked and verified.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature Card 2 -->
+                <div class="p-3 mt-3 feature-box d-flex align-items-start">
+                    <div class="icon-box me-3">
+                        <i class="bi bi-geo-alt fs-2"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-semibold">App-Enabled Tracking</h5>
+                        <p class="text-muted mb-0">
+                            Book, track, and rate every service in real time.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
 
     <section class="how-it-works-flow" id="how-it-works-flow">
         <div class="container">
@@ -110,17 +178,20 @@
 
             <div class="services-grid">
                 <div class="service-card">
-                    <img src="{{ asset('assets/images/service_core.png') }}" alt="Core Home Service" class="service-image">
+                    <img src="{{ asset('assets/images/service_core.png') }}" alt="Core Home Service"
+                        class="service-image">
                     <div class="service-card-overlay"></div>
                     <h3 class="service-title">Core Home Service</h3>
                 </div>
                 <div class="service-card">
-                    <img src="{{ asset('assets/images/service_family.png') }}" alt="Family Support" class="service-image">
+                    <img src="{{ asset('assets/images/service_family.png') }}" alt="Family Support"
+                        class="service-image">
                     <div class="service-card-overlay"></div>
                     <h3 class="service-title">Family Support</h3>
                 </div>
                 <div class="service-card">
-                    <img src="{{ asset('assets/images/service_personal.png') }}" alt="Personal Care" class="service-image">
+                    <img src="{{ asset('assets/images/service_personal.png') }}" alt="Personal Care"
+                        class="service-image">
                     <div class="service-card-overlay"></div>
                     <h3 class="service-title">Personal Care</h3>
                 </div>
