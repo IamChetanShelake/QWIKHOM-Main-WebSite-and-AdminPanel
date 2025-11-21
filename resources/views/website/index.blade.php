@@ -61,8 +61,8 @@
         }
 
         /* .service-card:hover .service-image {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    transform: scale(1.05);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                } */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    transform: scale(1.05);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                } */
 
         .service-card-overlay {
             position: absolute;
@@ -147,6 +147,7 @@
             display: block;
             margin: 0 auto;
             z-index: 10;
+            opacity: 0.5;
         }
 
         /* Step cards */
@@ -380,6 +381,63 @@
             }
         }
 
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .steps-wrapper {
+                padding: 40px 20px;
+                max-width: 100%;
+            }
+
+            .steps-wrapper .iphone {
+                width: 200px;
+                height: 408px;
+            }
+
+            .vertical-line,
+            .horizontal-end,
+            .line,
+            .dot {
+                display: none;
+            }
+
+            .step-box {
+                position: absolute !important;
+                top: 0 !important;
+                width: 100% !important;
+                min-height: auto !important;
+                opacity: 0;
+                animation: none;
+                /* Disable original animations */
+                z-index: 20;
+            }
+
+            .step1 {
+                animation: fadeInMobile 1s forwards;
+                animation-delay: 0.5s;
+            }
+
+            .step2 {
+                animation: fadeInMobile 1s forwards;
+                animation-delay: 1.5s;
+            }
+
+            .step3 {
+                animation: fadeInMobile 1s forwards;
+                animation-delay: 2.5s;
+            }
+
+            .step4 {
+                animation: fadeInMobile 1s forwards;
+                animation-delay: 3.5s;
+            }
+        }
+
+        @keyframes fadeInMobile {
+            to {
+                opacity: 1;
+            }
+        }
+
 
 
         @media (max-width: 768px) {
@@ -398,11 +456,14 @@
             }
 
             .services-grid {
-                grid-template-columns: repeat(2, 1fr);
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
                 gap: 20px;
             }
 
             .service-card {
+                flex: 0 1 calc(50% - 10px);
                 height: 250px;
             }
 
@@ -579,14 +640,14 @@
         }
 
         /* .plan-features li::before {
-                                                                                                                                                                content: "✓";
-                                                                                                                                                                position: absolute;
-                                                                                                                                                                left: 0;
-                                                                                                                                                                top: 0;
-                                                                                                                                                                color: var(--accent);
-                                                                                                                                                                font-weight: 700;
-                                                                                                                                                                font-size: 13px;
-                                                                                                                                                            } */
+                                                                                                                                                                                                                content: "✓";
+                                                                                                                                                                                                                position: absolute;
+                                                                                                                                                                                                                left: 0;
+                                                                                                                                                                                                                top: 0;
+                                                                                                                                                                                                                color: var(--accent);
+                                                                                                                                                                                                                font-weight: 700;
+                                                                                                                                                                                                                font-size: 13px;
+                                                                                                                                                                                                            } */
 
         /* button */
         .btn-book {
@@ -624,6 +685,18 @@
             }
         }
 
+        @media (max-width: 576px) {
+            .main-img {
+                width: 170px;
+                height: auto;
+            }
+
+            .overlay-img {
+                max-width: 38% !important;
+
+            }
+        }
+
         /* small screens stack nicely with some spacing */
         @media (max-width: 640px) {
             .plans-header h2 {
@@ -632,6 +705,18 @@
 
             .plan-card {
                 border-radius: 10px;
+            }
+        }
+
+        /* why qwikhom ? */
+        /* Feature Cards responsive */
+        .feature-box {
+            width: 489px;
+        }
+
+        @media (max-width: 576px) {
+            .feature-box {
+                width: 100%;
             }
         }
     </style>
@@ -675,7 +760,7 @@
         <div class="row align-items-start">
 
             <!-- LEFT SIDE -->
-            <div class="col-lg-6">
+            <div class="col-12 col-lg-6">
 
                 <!-- Years of Experience -->
                 <h1 class="fw-bold" style="font-weight: 600;font-size:72px;color:#004271;">1+</h1>
@@ -684,7 +769,7 @@
                 <!-- Images Wrapper -->
                 <div class="mt-2" style="position:relative;">
 
-                    <img src="{{ asset('assets/images/front-view-woman-cleaning-home 1.png') }}" class="img-fluid main-img"
+                    <img src="{{ asset('assets/images/front-view-woman-cleaning-home 1.png') }}" class="main-img"
                         alt="">
                     <img src="{{ asset('assets/images/women-cleaning.png') }}" class="img-fluid overlay-img" alt="">
                 </div>
@@ -692,7 +777,7 @@
             </div>
 
             <!-- RIGHT SIDE -->
-            <div class="col-lg-6">
+            <div class="col-12 col-lg-6">
 
                 <h3 class="dm-semibold-600-16-28-1 mb-3 mx-3">Why QwikHom?</h3>
 

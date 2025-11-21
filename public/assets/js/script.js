@@ -140,73 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Mobile menu toggle (basic implementation)
-    const createMobileMenu = () => {
-        const navContainer = document.querySelector('.nav-container');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        // Create mobile menu button
-        const mobileMenuBtn = document.createElement('button');
-        mobileMenuBtn.className = 'mobile-menu-btn';
-        mobileMenuBtn.innerHTML = '☰';
-        mobileMenuBtn.style.cssText = `
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: #004271;
-            cursor: pointer;
-        `;
-        
-        navContainer.appendChild(mobileMenuBtn);
-        
-        // Mobile menu functionality
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('mobile-active');
-        });
-        
-        // Show/hide mobile menu button based on screen size
-        const checkMobile = () => {
-            if (window.innerWidth <= 768) {
-                mobileMenuBtn.style.display = 'block';
-            } else {
-                mobileMenuBtn.style.display = 'none';
-                navMenu.classList.remove('mobile-active');
-            }
-        };
-        
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-    };
-    
-    createMobileMenu();
-
-    // Add CSS for mobile menu
-    const style = document.createElement('style');
-    style.textContent = `
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: #ffffff;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                transition: top 0.3s ease;
-            }
-            
-            .nav-menu.mobile-active {
-                top: 80px;
-            }
-            
-            .nav-menu li {
-                margin: 10px 0;
-            }
-        }
-    `;
-    document.head.appendChild(style);
+    // Bootstrap handles the mobile menu toggle now, no need for custom implementation
 
     // Scroll to top functionality
     const scrollToTop = () => {
