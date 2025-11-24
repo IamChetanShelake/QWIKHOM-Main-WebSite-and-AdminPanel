@@ -623,8 +623,8 @@ body {
     font-family: var(--dm-sans);
     font-size: 16px;
     font-weight: 400;
-    line-height: 1.875;
-    margin-bottom: 30px;
+    /* line-height: 1.875;
+    margin-bottom: 30px; */
 }
 
 /* .app-download-buttons {
@@ -1016,6 +1016,7 @@ body {
     color: var(--primary-blue);
     padding: 80px 0 40px;
     border-radius: 20px 20px 0 0;
+    margin: 0px 30px;
 }
 
 .footer-container {

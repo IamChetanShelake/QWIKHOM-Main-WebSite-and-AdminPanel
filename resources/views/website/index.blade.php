@@ -61,8 +61,8 @@
         }
 
         /* .service-card:hover .service-image {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    transform: scale(1.05);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                } */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    transform: scale(1.05);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                } */
 
         .service-card-overlay {
             position: absolute;
@@ -386,6 +386,7 @@
             .steps-wrapper {
                 padding: 40px 20px;
                 max-width: 100%;
+                margin-bottom: 500px;
             }
 
             .steps-wrapper .iphone {
@@ -403,32 +404,42 @@
             .step-box {
                 position: absolute !important;
                 top: 0 !important;
-                width: 100% !important;
-                min-height: auto !important;
+                width: 99% !important;
+                height: auto !important;
                 opacity: 0;
                 animation: none;
                 /* Disable original animations */
                 z-index: 20;
+                margin: auto;
             }
 
             .step1 {
                 animation: fadeInMobile 1s forwards;
                 animation-delay: 0.5s;
+                top: 0 !important;
             }
 
             .step2 {
                 animation: fadeInMobile 1s forwards;
                 animation-delay: 1.5s;
+                top: 325px !important;
             }
 
             .step3 {
                 animation: fadeInMobile 1s forwards;
                 animation-delay: 2.5s;
+                top: 488px !important;
             }
 
             .step4 {
                 animation: fadeInMobile 1s forwards;
                 animation-delay: 3.5s;
+                top: 857px !important;
+            }
+
+            .stats-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -542,7 +553,7 @@
         .plans-grid {
             display: grid;
             gap: 22px;
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             align-items: stretch;
             margin-top: 18px;
         }
@@ -640,14 +651,14 @@
         }
 
         /* .plan-features li::before {
-                                                                                                                                                                                                                content: "✓";
-                                                                                                                                                                                                                position: absolute;
-                                                                                                                                                                                                                left: 0;
-                                                                                                                                                                                                                top: 0;
-                                                                                                                                                                                                                color: var(--accent);
-                                                                                                                                                                                                                font-weight: 700;
-                                                                                                                                                                                                                font-size: 13px;
-                                                                                                                                                                                                            } */
+                                                                                                                                                                                                                                                                                                                content: "✓";
+                                                                                                                                                                                                                                                                                                                position: absolute;
+                                                                                                                                                                                                                                                                                                                left: 0;
+                                                                                                                                                                                                                                                                                                                top: 0;
+                                                                                                                                                                                                                                                                                                                color: var(--accent);
+                                                                                                                                                                                                                                                                                                                font-weight: 700;
+                                                                                                                                                                                                                                                                                                                font-size: 13px;
+                                                                                                                                                                                                                                                                                                            } */
 
         /* button */
         .btn-book {
@@ -717,6 +728,59 @@
         @media (max-width: 576px) {
             .feature-box {
                 width: 100%;
+            }
+        }
+
+        /* Mobile view for app-features */
+        @media (max-width: 768px) {
+            .app-features {
+                text-align: center;
+                padding: 21px 0;
+                margin: 0 11px;
+                height: 500px;
+            }
+
+            .app-features .row {
+                display: block;
+            }
+
+            .app-features .col-6 {
+                flex: none;
+                width: 100%;
+            }
+
+            .app-download-buttons {
+                flex-direction: column !important;
+            }
+
+            .app-download-buttons img {
+                width: 150px !important;
+                height: 62px !important;
+                max-width: 40vw;
+            }
+
+            .app-feature-main-img,
+            .app-feature-secondary-img {
+                width: 100% !important;
+                max-width: 45vw;
+                height: auto;
+                display: none;
+            }
+
+            .iphone-secondary {
+                display: block !important;
+                width: 32%;
+                height: auto;
+                margin: auto;
+            }
+
+            .app-features-images .row {
+                justify-content: center;
+            }
+
+            .app-features-images .col-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
             }
         }
     </style>
@@ -1449,13 +1513,14 @@
     ">
 
 
-                                <div class="col-5">
+                                <div class="">
+
                                     <img src="{{ asset('assets/images/google_play.png') }}" alt="Get it on Google Play"
                                         style="    width: 208px;
         height: 86px;">
                                 </div>
 
-                                <div class="col-5">
+                                <div class="col-lg-5 col-sm-12">
                                     <img src="{{ asset('assets/images/app_store.png') }}"
                                         alt="Download on the App Store">
 
@@ -1472,6 +1537,8 @@
             <div class="col-6">
                 <div class="app-features-images">
                     <div class="row">
+                        <img src="{{ asset('assets/images/how_it_works__actual_iphone.png') }}" class="iphone-secondary"
+                            style="display: none;">
                         <div class="col-6"> <img
                                 src="{{ asset('assets/images/how_it_works__actual_iphone-upper-top-section.png') }}"
                                 alt="App on phone" class="app-feature-main-img"></div>
