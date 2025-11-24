@@ -9,31 +9,58 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@400;600;700&family=Roboto:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap"
         rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
 </head>
 
 <body>
     <!-- Navigation Header -->
     <header class="header">
         <nav class="nav-container">
-            <div class="logo">
-                <img src="{{ asset('assets/images/header_logo.png') }}" alt="QwikHom Logo">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto">
+                        <div class="logo">
+                            <img src="{{ asset('assets/images/header_logo.png') }}" alt="QwikHom Logo">
+                        </div>
+                    </div>
+                    <div class="col d-none d-lg-block">
+                        <div class="navbar-collapse justify-content-center" id="navbarNavDesktop">
+                            <ul class="nav-menu">
+                                <li><a href="#home" class="nav-link active">Home</a></li>
+                                <li><a href="#about" class="nav-link">About</a></li>
+                                <li><a href="#services" class="nav-link">Service</a></li>
+                                <li><a href="#how-it-works" class="nav-link">How it works</a></li>
+                                <li><a href="#plans" class="nav-link">Plans</a></li>
+                                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-auto d-lg-none">
+                        <button class="navbar-toggler hamburger-btn" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="hamburger-line"></span>
+                            <span class="hamburger-line"></span>
+                            <span class="hamburger-line"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="navbar-collapse collapse d-md-none" id="navbarNav">
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="nav-link active">Home</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#services" class="nav-link">Service</a></li>
+                        <li><a href="#how-it-works" class="nav-link">How it works</a></li>
+                        <li><a href="#plans" class="nav-link">Plans</a></li>
+                        <li><a href="#contact" class="nav-link">Contact Us</a></li>
+                    </ul>
+                </div>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#services" class="nav-link">Service</a></li>
-                <li><a href="#how-it-works" class="nav-link">How it works</a></li>
-                <li><a href="#plans" class="nav-link">Plans</a></li>
-                <li><a href="#contact" class="nav-link">Contact Us</a></li>
-            </ul>
-            {{-- <div class="search-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z"
-                        stroke="#004271" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </div> --}}
-            <div class=""></div>
         </nav>
     </header>
