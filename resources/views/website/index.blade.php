@@ -61,8 +61,8 @@
         }
 
         /* .service-card:hover .service-image {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    transform: scale(1.05);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                } */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            transform: scale(1.05);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        } */
 
         .service-card-overlay {
             position: absolute;
@@ -147,7 +147,7 @@
             display: block;
             margin: 0 auto;
             z-index: 10;
-            opacity: 0.5;
+
         }
 
         /* Step cards */
@@ -392,6 +392,7 @@
             .steps-wrapper .iphone {
                 width: 200px;
                 height: 408px;
+                opacity: 0.5;
             }
 
             .vertical-line,
@@ -651,14 +652,14 @@
         }
 
         /* .plan-features li::before {
-                                                                                                                                                                                                                                                                                                                content: "✓";
-                                                                                                                                                                                                                                                                                                                position: absolute;
-                                                                                                                                                                                                                                                                                                                left: 0;
-                                                                                                                                                                                                                                                                                                                top: 0;
-                                                                                                                                                                                                                                                                                                                color: var(--accent);
-                                                                                                                                                                                                                                                                                                                font-weight: 700;
-                                                                                                                                                                                                                                                                                                                font-size: 13px;
-                                                                                                                                                                                                                                                                                                            } */
+                                                                                                                                                                                                                                                                                                                        content: "✓";
+                                                                                                                                                                                                                                                                                                                        position: absolute;
+                                                                                                                                                                                                                                                                                                                        left: 0;
+                                                                                                                                                                                                                                                                                                                        top: 0;
+                                                                                                                                                                                                                                                                                                                        color: var(--accent);
+                                                                                                                                                                                                                                                                                                                        font-weight: 700;
+                                                                                                                                                                                                                                                                                                                        font-size: 13px;
+                                                                                                                                                                                                                                                                                                                    } */
 
         /* button */
         .btn-book {
