@@ -591,7 +591,7 @@ body {
 
 .app-feature-main-img {
     width: 256px;
-    /* 
+    /*
     height: 293px;
     border-radius: 60px 60px 0 0; */
 }
@@ -601,7 +601,7 @@ body {
     bottom: 115px;
     position: absolute;
     /*
-  
+
     right: 50px;
     width: 207px;
     height: 219px;
@@ -664,7 +664,7 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
-/* 
+/*
 .services-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1263,5 +1263,163 @@ body {
         height: 100px;
         bottom: 0;
         right: 0;
+    }
+
+    /* Hide iPhone on mobile as steps are stacked */
+    .steps-wrapper .iphone {
+        display: none;
+    }
+
+    /* Mobile Footer */
+    .footer {
+        padding: 40px 0 20px;
+        margin: 0px 10px;
+    }
+
+    .footer-container {
+        padding: 0 15px;
+    }
+
+    .footer-top-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .footer-logo-img {
+        width: 200px;
+        height: 65px;
+        margin-bottom: 15px;
+    }
+
+    .footer-info h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .footer-info p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .footer-info h4 {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    .social-links {
+        gap: 10px;
+    }
+
+    .footer-quick-links h4,
+    .footer-contact-info h4,
+    .footer-form-section h4 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .footer-contact-info ul li span {
+        font-size: 14px;
+    }
+
+    .send-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+/* Very small mobile devices */
+@media (max-width: 480px) {
+    .footer {
+        margin: 0px 5px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .footer-container {
+        padding: 0 10px;
+    }
+
+    .footer-logo-img {
+        width: 150px;
+        height: 48px;
+    }
+
+    .footer-info h3 {
+        font-size: 15px;
+    }
+
+    .footer-info p {
+        font-size: 13px;
+    }
+
+    .footer-quick-links h4,
+    .footer-contact-info h4,
+    .footer-form-section h4 {
+        font-size: 16px;
+    }
+
+    .footer-quick-links ul li a,
+    .footer-contact-info ul li span {
+        font-size: 14px;
+    }
+
+    .app-download-buttons img {
+        width: 120px;
+    }
+}
+
+/* mobile plans section */
+@media (max-width: 768px) {
+    .plans-section {
+        padding: 40px 0;
+    }
+
+    .plans-inner {
+        padding: 0 10px;
+    }
+
+    .plans-header {
+        margin-bottom: 20px;
+    }
+
+    .plans-header h2 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .plans-header p {
+        font-size: 14px;
+        max-width: none;
+    }
+
+    .plans-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+    }
+
+    .plan-card {
+        width: auto;
+        margin: 0;
+    }
+
+    .plan-top {
+        padding: 15px 15px;
+        font-size: 16px;
+    }
+
+    .plan-body {
+        padding: 15px;
+        min-height: auto;
+    }
+
+    .price {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+
+    .plan-features li {
+        font-size: 13px;
+        padding-left: 18px;
     }
 }

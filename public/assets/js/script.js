@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-            
+
             if (targetSection) {
                 targetSection.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
             }
-            
+
             // Update active nav link
             navLinks.forEach(l => l.classList.remove('active'));
             this.classList.add('active');
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
             header.style.backgroundColor = 'var(--primary-blue)';
-           
+
         } else {
             header.style.backgroundColor = '#004271';
             header.style.backdropFilter = 'none';
@@ -38,31 +38,31 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             // Get form data
             const name = this.querySelector('input[name="name"]').value;
             const email = this.querySelector('input[name="email"]').value;
             const message = this.querySelector('textarea[name="message"]').value;
-            
+
             // Basic validation
             if (!name || !email || !message) {
                 alert('Please fill in all fields');
                 return;
             }
-            
+
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 alert('Please enter a valid email address');
                 return;
             }
-            
+
             // Simulate form submission
             const submitBtn = this.querySelector('.send-btn');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
-            
+
             setTimeout(() => {
                 alert('Thank you for your message! We will get back to you soon.');
                 this.reset();
@@ -89,12 +89,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Simulate app download
             this.textContent = 'Download Started';
             this.style.background = '#28a745';
-            
+
             setTimeout(() => {
                 this.textContent = 'Download App';
                 this.style.background = '';
             }, 3000);
-            
+
             // In a real implementation, this would redirect to app store or trigger download
             console.log('App download initiated');
         });
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const stat = entry.target;
                 const finalNumber = parseInt(stat.getAttribute('data-target'));
                 const suffix = stat.textContent.replace(/[\d,]/g, '');
-                
+
                 let currentNumber = 0;
                 const duration = 2000; // 2 seconds
                 const stepTime = 20; // update every 20ms
@@ -138,6 +138,23 @@ document.addEventListener('DOMContentLoaded', function() {
         statsNumbers.forEach(stat => {
             observer.observe(stat);
         });
+    }
+
+    // How It Works section animation trigger
+    const stepsWrapper = document.querySelector('.steps-wrapper');
+    if (stepsWrapper) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add class to trigger animations
+                    entry.target.classList.add('animate-steps');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the section is visible
+        });
+        observer.observe(stepsWrapper);
     }
 
     // Bootstrap handles the mobile menu toggle now, no need for custom implementation
@@ -171,9 +188,9 @@ document.addEventListener('DOMContentLoaded', function() {
         transition: all 0.3s ease;
         z-index: 1000;
     `;
-    
+
     document.body.appendChild(scrollTopBtn);
-    
+
     // Show/hide scroll to top button
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
@@ -184,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollTopBtn.style.visibility = 'hidden';
         }
     });
-    
+
     scrollTopBtn.addEventListener('click', scrollToTop);
 });
 
@@ -204,7 +221,7 @@ const Utils = {
             if (callNow) func(...args);
         };
     },
-    
+
     // Check if element is in viewport
     isInViewport: function(element) {
         const rect = element.getBoundingClientRect();
