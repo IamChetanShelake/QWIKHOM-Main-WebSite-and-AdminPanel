@@ -147,7 +147,6 @@
             display: block;
             margin: 0 auto;
             z-index: 10;
-
         }
 
         /* Step cards */
@@ -159,8 +158,28 @@
             border-radius: 10px;
             border: 2px solid rgb(212 212 212 / 50%);
             opacity: 0;
-            animation: fadeInBox 0.8s forwards ease-out;
             position: absolute;
+        }
+
+        /* Add animations only when section is in view */
+        .steps-wrapper.animate-steps .step1 {
+            animation: fadeInBox 0.8s forwards ease-out;
+            animation-delay: 1s;
+        }
+
+        .steps-wrapper.animate-steps .step2 {
+            animation: fadeInBox 0.8s forwards ease-out;
+            animation-delay: 2.2s;
+        }
+
+        .steps-wrapper.animate-steps .step3 {
+            animation: fadeInBox 0.8s forwards ease-out;
+            animation-delay: 3.4s;
+        }
+
+        .steps-wrapper.animate-steps .step4 {
+            animation: fadeInBox 0.8s forwards ease-out;
+            animation-delay: 4.6s;
         }
 
         .num {
@@ -212,7 +231,6 @@
             position: absolute;
             background: rgba(133, 189, 229, 1);
             opacity: 0;
-            animation: growLine 0.7s forwards ease-out;
         }
 
         /* Line positions */
@@ -221,6 +239,10 @@
             height: 2px;
             top: 150px;
             left: 65.3%;
+        }
+
+        .steps-wrapper.animate-steps .line1 {
+            animation: growLine 0.7s forwards ease-out;
             animation-delay: 0.3s;
         }
 
@@ -229,6 +251,10 @@
             height: 2px;
             bottom: 150px;
             left: 65.3%;
+        }
+
+        .steps-wrapper.animate-steps .line2 {
+            animation: growLine 0.7s forwards ease-out;
             animation-delay: 1.5s;
         }
 
@@ -237,6 +263,10 @@
             height: 2px;
             top: 150px;
             right: 65.3%;
+        }
+
+        .steps-wrapper.animate-steps .line3 {
+            animation: growLine 0.7s forwards ease-out;
             animation-delay: 2.7s;
         }
 
@@ -245,6 +275,10 @@
             height: 2px;
             bottom: 150px;
             right: 65.3%;
+        }
+
+        .steps-wrapper.animate-steps .line4 {
+            animation: growLine 0.7s forwards ease-out;
             animation-delay: 3.9s;
         }
 
@@ -256,7 +290,36 @@
             border-radius: 50%;
             position: absolute;
             opacity: 0;
+        }
+
+        .steps-wrapper.animate-steps .dot1 {
             animation: fadeInDot 0.3s forwards ease-out;
+            animation-delay: 0.9s;
+        }
+
+        .steps-wrapper.animate-steps .dot2 {
+            animation: fadeInDot 0.3s forwards ease-out;
+            animation-delay: 2.1s;
+        }
+
+        .steps-wrapper.animate-steps .dot3 {
+            animation: fadeInDot 0.3s forwards ease-out;
+            animation-delay: 3.3s;
+        }
+
+        .steps-wrapper.animate-steps .dot4 {
+            animation: fadeInDot 0.3s forwards ease-out;
+            animation-delay: 4.5s;
+        }
+
+        .steps-wrapper.animate-steps .horizontal-end-left-dot {
+            animation: fadeInDot 0.3s forwards ease-out;
+            animation-delay: 0.9s;
+        }
+
+        .steps-wrapper.animate-steps .horizontal-end-right-dot {
+            animation: fadeInDot 0.3s forwards ease-out;
+            animation-delay: 3.3s;
         }
 
         .dot1 {
@@ -293,6 +356,9 @@
             width: 2px;
             background: rgba(133, 189, 229, 1);
             opacity: 0;
+        }
+
+        .steps-wrapper.animate-steps .vertical-line {
             animation: growLineVert 0.7s forwards ease-out;
         }
 
@@ -317,6 +383,9 @@
             background: rgba(133, 189, 229, 1);
             width: 0px;
             opacity: 0;
+        }
+
+        .steps-wrapper.animate-steps .horizontal-end {
             animation: growLineHoriz 0.7s forwards ease-out;
         }
 
@@ -442,6 +511,27 @@
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            /* Enable animations on scroll in mobile */
+            .steps-wrapper.animate-steps .step1 {
+                animation: fadeInMobile 1s forwards;
+                animation-delay: 0.5s;
+            }
+
+            .steps-wrapper.animate-steps .step2 {
+                animation: fadeInMobile 1s forwards;
+                animation-delay: 1.5s;
+            }
+
+            .steps-wrapper.animate-steps .step3 {
+                animation: fadeInMobile 1s forwards;
+                animation-delay: 2.5s;
+            }
+
+            .steps-wrapper.animate-steps .step4 {
+                animation: fadeInMobile 1s forwards;
+                animation-delay: 3.5s;
+            }
         }
 
         @keyframes fadeInMobile {
@@ -554,9 +644,10 @@
         .plans-grid {
             display: grid;
             gap: 22px;
-            grid-template-columns: repeat(2, 1fr);
+            /* grid-template-columns: repeat(2, 1fr); */
             align-items: stretch;
             margin-top: 18px;
+            place-items: center;
         }
 
         /* large screens: 4 columns */
@@ -980,8 +1071,14 @@
         </div>
     </section>
 
+
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-subtitle">We’ve simplified every step — so you can enjoy reliable home services with total confidence.</p>
     <!-- How It Works Section -->
     <section class="steps-wrapper">
+
+
+
 
         <img src="{{ asset('assets/images/how_it_works__actual_iphone.png') }}" class="iphone" />
 
@@ -1070,9 +1167,9 @@
     <section class="plans-section">
 
         <!-- optional decorative hero - remove if you don't need it -->
-        <div class="plans-hero-wrap">
+        {{-- <div class="plans-hero-wrap">
             <img src="/mnt/data/Group 2085664361.png" alt="plans-visual" class="plans-hero" />
-        </div>
+        </div> --}}
 
         <div class="plans-inner">
             <header class="plans-header">
@@ -1391,7 +1488,7 @@
             style="top: 0px;
     right: 0px;
     opacity: 0.5;
-     width: 25%; 
+     width: 25%;
     height: auto;">
         <div class="container">
             <div class="stats-container">
