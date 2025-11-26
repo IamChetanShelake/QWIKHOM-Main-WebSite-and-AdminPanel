@@ -21,7 +21,7 @@
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#how-it-works">How it works</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    {{-- <li><a href="#contact">Contact</a></li> --}}
                 </ul>
             </div>
             <div class="footer-contact-info">
@@ -41,10 +41,20 @@
                 <h4>Get In Touch</h4>
                 <p>We are here for you, How can we help?</p>
                 <form class="contact-form">
-                    <input type="text" name="name" placeholder="Name">
-                    <input type="email" name="email" placeholder="Email ID">
-                    <textarea name="message" placeholder="Write a Message"></textarea>
-                    <button type="submit" class="send-btn">Send</button>
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <input type="text" name="name" placeholder="Name">
+                        </div>
+                        <div class="col-6 mb-2">
+                            <input type="email" name="email" placeholder="Email ID">
+                        </div>
+                        <div class="col-12 mb-2">
+                            <textarea name="message" placeholder="Write a Message"></textarea>
+                        </div>
+                        <div class="col-12 d-flex justify-content-center">
+                            <button type="submit" class="send-btn">Send</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

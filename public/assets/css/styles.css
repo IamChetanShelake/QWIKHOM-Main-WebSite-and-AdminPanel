@@ -590,7 +590,7 @@ body {
 }
 
 .app-feature-main-img {
-    width: 256px;
+    width: 240px;
     /*
     height: 293px;
     border-radius: 60px 60px 0 0; */
@@ -1014,9 +1014,13 @@ body {
 .footer {
     background: var(--light-blue);
     color: var(--primary-blue);
-    padding: 80px 0 40px;
-    border-radius: 20px 20px 0 0;
-    margin: 0px 30px;
+    padding: 80px 0 4px;
+    border-radius: 20px 20px 20px 20px;
+    margin: 30px 30px 30px 30px;
+}
+
+.footer-info{
+    margin-top:-40px
 }
 
 .footer-container {
@@ -1030,6 +1034,7 @@ body {
     grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
     gap: 40px;
     margin-bottom: 60px;
+    align-items: start;
 }
 
 .footer-logo-img {
@@ -1071,11 +1076,12 @@ body {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 24px;
+    text-decoration: dotted;
 }
 
 .footer-quick-links ul,
 .footer-contact-info ul {
-    list-style: none;
+    list-style: disc;
 }
 
 .footer-quick-links ul li,
@@ -1121,7 +1127,7 @@ body {
     padding: 12px;
     border: 1px solid var(--primary-blue);
     border-radius: 5px;
-    background: var(--light-text);
+    background: var(--light-blue);
     color: var(--dark-text);
 }
 
@@ -1160,6 +1166,7 @@ body {
         position: absolute;
         border-radius: 50%;
         object-fit: cover;
+        margin-top: 18px;
     }
     .img-top-right {
         width: 280px;
@@ -1234,7 +1241,13 @@ body {
         height: 400px;
         order: -1;
         overflow-x: hidden;
+        overflow-y: hidden;
     }
+    .icon-box {
+        width: 0px;
+        padding: 0px 35px;
+    }
+
     .img {
         position: absolute;
         border-radius: 50%;
@@ -1331,6 +1344,10 @@ body {
 
 /* Very small mobile devices */
 @media (max-width: 480px) {
+    .service-description {
+        font-size: 65% !important;
+    }
+
     .footer {
         margin: 0px 5px;
         border-radius: 10px 10px 0 0;
@@ -1365,7 +1382,8 @@ body {
     }
 
     .app-download-buttons img {
-        width: 120px;
+        width: 114px !important;
+        height: auto !important;
     }
 }
 

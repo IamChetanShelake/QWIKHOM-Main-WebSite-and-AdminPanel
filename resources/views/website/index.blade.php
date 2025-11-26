@@ -61,8 +61,8 @@
         }
 
         /* .service-card:hover .service-image {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            transform: scale(1.05);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        } */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                transform: scale(1.05);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            } */
 
         .service-card-overlay {
             position: absolute;
@@ -474,7 +474,7 @@
             .step-box {
                 position: absolute !important;
                 top: 0 !important;
-                width: 99% !important;
+                width: 94% !important;
                 height: auto !important;
                 opacity: 0;
                 animation: none;
@@ -743,14 +743,14 @@
         }
 
         /* .plan-features li::before {
-                                                                                                                                                                                                                                                                                                                        content: "✓";
-                                                                                                                                                                                                                                                                                                                        position: absolute;
-                                                                                                                                                                                                                                                                                                                        left: 0;
-                                                                                                                                                                                                                                                                                                                        top: 0;
-                                                                                                                                                                                                                                                                                                                        color: var(--accent);
-                                                                                                                                                                                                                                                                                                                        font-weight: 700;
-                                                                                                                                                                                                                                                                                                                        font-size: 13px;
-                                                                                                                                                                                                                                                                                                                    } */
+                                                                                                                                                                                                                                                                                                                                                                            content: "✓";
+                                                                                                                                                                                                                                                                                                                                                                            position: absolute;
+                                                                                                                                                                                                                                                                                                                                                                            left: 0;
+                                                                                                                                                                                                                                                                                                                                                                            top: 0;
+                                                                                                                                                                                                                                                                                                                                                                            color: var(--accent);
+                                                                                                                                                                                                                                                                                                                                                                            font-weight: 700;
+                                                                                                                                                                                                                                                                                                                                                                            font-size: 13px;
+                                                                                                                                                                                                                                                                                                                                                                        } */
 
         /* button */
         .btn-book {
@@ -820,6 +820,11 @@
         @media (max-width: 576px) {
             .feature-box {
                 width: 100%;
+                font-size: 75%
+            }
+
+            .feature-box h5 {
+                font-size: 16px;
             }
         }
 
@@ -828,7 +833,7 @@
             .app-features {
                 text-align: center;
                 padding: 21px 0;
-                margin: 0 11px;
+                margin: 0 30px;
                 height: 500px;
             }
 
@@ -845,11 +850,11 @@
                 flex-direction: column !important;
             }
 
-            .app-download-buttons img {
-                width: 150px !important;
-                height: 62px !important;
-                max-width: 40vw;
-            }
+            /* .app-download-buttons img {
+                                            width: 150px !important;
+                                            height: 62px !important;
+                                            max-width: 40vw;
+                                        } */
 
             .app-feature-main-img,
             .app-feature-secondary-img {
@@ -861,7 +866,7 @@
 
             .iphone-secondary {
                 display: block !important;
-                width: 32%;
+                width: 40%;
                 height: auto;
                 margin: auto;
             }
@@ -912,7 +917,7 @@
     </section>
 
     {{-- why qwikhom ?  --}}
-    <section class="container py-5">
+    <section class="container py-5" id="about">
         <div class="row align-items-start">
 
             <!-- LEFT SIDE -->
@@ -1072,8 +1077,9 @@
     </section>
 
 
-    <h2 class="section-title">How It Works</h2>
-    <p class="section-subtitle">We’ve simplified every step — so you can enjoy reliable home services with total confidence.</p>
+    <h2 class="section-title" id="how-it-works">How It Works</h2>
+    <p class="section-subtitle">We’ve simplified every step — so you can enjoy reliable home services with total
+        confidence.</p>
     <!-- How It Works Section -->
     <section class="steps-wrapper">
 
@@ -1164,7 +1170,7 @@
     </section>
 
     <!-- Plans Section (drop this into your blade) -->
-    <section class="plans-section">
+    <section class="plans-section" id="plans">
 
         <!-- optional decorative hero - remove if you don't need it -->
         {{-- <div class="plans-hero-wrap">
@@ -1633,7 +1639,7 @@
                 </div>
             </div>
             <div class="col-6">
-                <div class="app-features-images">
+                <div class="app-features-images mt-3 mb-3">
                     <div class="row">
                         <img src="{{ asset('assets/images/how_it_works__actual_iphone.png') }}" class="iphone-secondary"
                             style="display: none;">
