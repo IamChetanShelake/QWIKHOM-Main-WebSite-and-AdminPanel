@@ -25,12 +25,12 @@ class AboutController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
-            'image1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'help_phone' => 'nullable|string|max:20',
             'key_points.*.title' => 'required|string|max:255',
             'key_points.*.description' => 'required|string',
-            'key_points.*.image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'key_points.*.image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $data = $request->only(['title', 'description', 'help_phone', 'is_active']);
@@ -40,8 +40,8 @@ class AboutController extends Controller
             $imageField = 'image' . $i;
             if ($request->hasFile($imageField)) {
                 $imageName = time() . '_about_' . $i . '.' . $request->file($imageField)->extension();
-                $request->file($imageField)->move(public_path('images/about'), $imageName);
-                $data[$imageField] = 'images/about/' . $imageName;
+                $request->file($imageField)->move('about_images', $imageName);
+                $data[$imageField] = 'about_images/' . $imageName;
             }
         }
 
@@ -55,8 +55,8 @@ class AboutController extends Controller
 
                 if (isset($keyPointData['image']) && $request->hasFile("key_points.{$index}.image")) {
                     $imageName = time() . '_keypoint_' . $index . '.' . $request->file("key_points.{$index}.image")->extension();
-                    $request->file("key_points.{$index}.image")->move(public_path('images/about/keypoints'), $imageName);
-                    $keyPointData['image'] = 'images/about/keypoints/' . $imageName;
+                    $request->file("key_points.{$index}.image")->move('about_images', $imageName);
+                    $keyPointData['image'] = 'about_images' . $imageName;
                 }
 
                 AboutKeyPoint::create($keyPointData);
@@ -83,12 +83,12 @@ class AboutController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
-            'image1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'help_phone' => 'nullable|string|max:20',
             'key_points.*.title' => 'required|string|max:255',
             'key_points.*.description' => 'required|string',
-            'key_points.*.image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'key_points.*.image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $data = $request->only(['title', 'description', 'help_phone', 'is_active']);

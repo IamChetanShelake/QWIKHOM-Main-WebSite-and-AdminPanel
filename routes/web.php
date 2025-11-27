@@ -12,10 +12,12 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContactSubmissionController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\website\websiteController;
 
-Route::get('/', function () {
-    return view('website.index');
-});
+Route::get('/', [websiteController::class, 'index'])->name('home');
+// Route::get('/', function () {
+//     return view('website.index');
+// });
 
 // Admin Routes (Protected by Authentication)
 Route::prefix('admin')->middleware('auth')->group(function () {
@@ -77,4 +79,4 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -61,8 +61,8 @@
         }
 
         /* .service-card:hover .service-image {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                transform: scale(1.05);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            } */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    transform: scale(1.05);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                } */
 
         .service-card-overlay {
             position: absolute;
@@ -660,7 +660,7 @@
         /* card */
         .plan-card {
             width: 247px;
-            /* height: 479px; */
+            max-height: 500px;
             border-radius: 12px;
             background: var(--card-top);
             padding: 5px;
@@ -734,7 +734,13 @@
             font-size: 14px;
             line-height: 1.8;
             flex: 1 1 auto;
+            max-height: 200px;
+            overflow-x: hidden;
             background: rgba(228, 249, 255, 1);
+        }
+
+        .plan-features::-webkit-scrollbar {
+            display: none;
         }
 
         .plan-features li {
@@ -743,14 +749,14 @@
         }
 
         /* .plan-features li::before {
-                                                                                                                                                                                                                                                                                                                                                                            content: "✓";
-                                                                                                                                                                                                                                                                                                                                                                            position: absolute;
-                                                                                                                                                                                                                                                                                                                                                                            left: 0;
-                                                                                                                                                                                                                                                                                                                                                                            top: 0;
-                                                                                                                                                                                                                                                                                                                                                                            color: var(--accent);
-                                                                                                                                                                                                                                                                                                                                                                            font-weight: 700;
-                                                                                                                                                                                                                                                                                                                                                                            font-size: 13px;
-                                                                                                                                                                                                                                                                                                                                                                        } */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                content: "✓";
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                position: absolute;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                left: 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                top: 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                color: var(--accent);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                font-weight: 700;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                font-size: 13px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            } */
 
         /* button */
         .btn-book {
@@ -796,8 +802,9 @@
 
             .overlay-img {
                 max-width: 38% !important;
-
             }
+
+
         }
 
         /* small screens stack nicely with some spacing */
@@ -823,8 +830,26 @@
                 font-size: 75%
             }
 
+            .downloadbuttons {
+                column-gap: 10px !important;
+            }
+
             .feature-box h5 {
                 font-size: 16px;
+            }
+
+            .stat-label {
+                font-size: 18px
+            }
+
+            .statistics-bg-1 {
+                width: 68% !important;
+                opacity: 0.3 !important;
+
+            }
+
+            .statistics-bg-2 {
+                width: 68% !important;
             }
         }
 
@@ -851,10 +876,10 @@
             }
 
             /* .app-download-buttons img {
-                                            width: 150px !important;
-                                            height: 62px !important;
-                                            max-width: 40vw;
-                                        } */
+                                                                                                                                                                                                                                                                                width: 150px !important;
+                                                                                                                                                                                                                                                                                height: 62px !important;
+                                                                                                                                                                                                                                                                                max-width: 40vw;
+                                                                                                                                                                                                                                                                            } */
 
             .app-feature-main-img,
             .app-feature-secondary-img {
@@ -909,10 +934,12 @@
         </div>
 
         <div class="hero-image-container">
-            <img src="{{ asset('assets/images/bannerImg1.png') }}" class="img img-top-right">
-            <img src="{{ asset('assets/images/bannerImg4.png') }}" class="img img-top-left">
-            <img src="{{ asset('assets/images/bannerImg3.png') }}" class="img img-bottom-left">
-            <img src="{{ asset('assets/images/bannerImg2.png') }}" class="img img-bottom-right">
+            @foreach ($heroSections as $hs)
+                <img src="{{ asset($hs->image2) }}" class="img img-top-right">
+                <img src="{{ asset($hs->image1) }}" class="img img-top-left">
+                <img src="{{ asset($hs->image3) }}" class="img img-bottom-left">
+                <img src="{{ asset($hs->image4) }}" class="img img-bottom-right">
+            @endforeach
         </div>
     </section>
 
@@ -930,9 +957,8 @@
                 <!-- Images Wrapper -->
                 <div class="mt-2" style="position:relative;">
 
-                    <img src="{{ asset('assets/images/front-view-woman-cleaning-home 1.png') }}" class="main-img"
-                        alt="">
-                    <img src="{{ asset('assets/images/women-cleaning.png') }}" class="img-fluid overlay-img" alt="">
+                    <img src="{{ asset($aboutSections->image1) }}" class="main-img" alt="">
+                    <img src="{{ asset($aboutSections->image2) }}" class="img-fluid overlay-img" alt="">
                 </div>
 
             </div>
@@ -940,29 +966,27 @@
             <!-- RIGHT SIDE -->
             <div class="col-12 col-lg-6">
 
-                <h3 class="dm-semibold-600-16-28-1 mb-3 mx-3">Why QwikHom?</h3>
+                <h3 class="dm-semibold-600-16-28-1 mb-3 mx-3">{{ $aboutSections->title }}</h3>
 
                 <p class="dm-semibold-400-16-28-0 text-muted">
-                    Many service providers operate as unlicensed freelancers, often not approved by municipal
-                    authorities. QwikHom bridges this gap — offering fully verified, trained, and accountable
-                    professionals.
+                    {!! $aboutSections->description !!}
                 </p>
 
-                <!-- Feature Card 1 -->
-                <div class="p-3 mt-4 feature-box d-flex align-items-center">
-                    <div class="icon-box me-3">
-                        <img src="{{ asset('assets/images/trusted-icon.png') }}" alt="">
+                <!-- Feature Cards -->
+                @foreach ($aboutSections->keyPoints as $keyPoint)
+                    <div class="p-3 {{ $loop->first ? 'mt-4' : 'mt-3' }} feature-box d-flex align-items-center">
+                        <div class="icon-box me-3">
+                            <img src="{{ asset($keyPoint->image) }}" alt="">
+                        </div>
+                        <div>
+                            <h5 class="fw-semibold">{{ $keyPoint->title }}</h5>
+                            <p class="text-muted mb-0">{{ $keyPoint->description }}</p>
+                        </div>
                     </div>
-                    <div>
-                        <h5 class="fw-semibold">Trusted Experts</h5>
-                        <p class="text-muted mb-0">
-                            All service partners are background-checked and verified.
-                        </p>
-                    </div>
-                </div>
+                @endforeach
 
                 <!-- Feature Card 2 -->
-                <div class="p-3 mt-3 feature-box d-flex align-items-center">
+                {{-- <div class="p-3 mt-3 feature-box d-flex align-items-center">
                     <div class="icon-box me-3">
                         <img src="{{ asset('assets/images/map-tracking.png') }}" alt="">
                     </div>
@@ -972,10 +996,10 @@
                             Book, track, and rate every service in real time.
                         </p>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Feature Card 3 -->
-                <div class="p-3 mt-3 feature-box d-flex align-items-center">
+                {{-- <div class="p-3 mt-3 feature-box d-flex align-items-center">
                     <div class="icon-box me-3">
                         <img src="{{ asset('assets/images/support-icon.png') }}" alt="">
                     </div>
@@ -985,7 +1009,7 @@
                             Local support and community-driven service.
                         </p>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
         </div>
@@ -997,16 +1021,17 @@
             <p class="section-subtitle">From small repairs to full maintenance — all under one trusted roof.</p>
 
             <div class="services-grid">
-                <div class="service-card">
-                    <img src="{{ asset('assets/images/service_core.png') }}" alt="Core Home Service" class="service-image">
-                    <div class="service-card-overlay"></div>
-                    <div class="service-content">
-                        <h3 class="service-title">Core Home Service</h3>
-                        <p class="service-description">Essential home repairs and maintenance services tailored for your
-                            comfort.</p>
+                @foreach ($services as $service)
+                    <div class="service-card">
+                        <img src="{{ asset($service->image) }}" alt="Core Home Service" class="service-image">
+                        <div class="service-card-overlay"></div>
+                        <div class="service-content">
+                            <h3 class="service-title">{{ $service->title }}</h3>
+                            <p class="service-description">{{ $service->description }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="service-card">
+                @endforeach
+                {{-- <div class="service-card">
                     <img src="{{ asset('assets/images/service_family.png') }}" alt="Family Support" class="service-image">
                     <div class="service-card-overlay"></div>
                     <div class="service-content">
@@ -1071,7 +1096,7 @@
                         <p class="service-description">Complete pet care including grooming, walking, training, and health
                             services.</p>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -1097,27 +1122,31 @@
         <div class="horizontal-end horizontal-end-right"></div>
 
         <!-- STEP 1 -->
-        <div class="step-box step1 row">
-            <div class="" style="display:flex;justify-content:center;align-items:center;">
+        <!-- STEPS -->
+        @foreach ($howItWorks as $htw)
+            <div class="step-box step{{ $htw->order }} row">
+                <div class="" style="display:flex;justify-content:center;align-items:center;">
 
-                <div class="col-2">
-                    <span class="num">1</span>
+                    <div class="col-2">
+                        <span class="num">{{ $htw->order }}</span>
+                    </div>
+                    <div class="col-10">
+                        <h3>{{ $htw->title }}</h3>
+                    </div>
+
                 </div>
-                <div class="col-10">
-                    <h3>Download The App</h3>
+                <div class="col-12">
+
+                    <p>{!! $htw->description !!}</p>
                 </div>
 
             </div>
-            <div class="col-12">
-
-                <p>Download the QwikHom App to bring reliable home services to your fingertips.</p>
-            </div>
-        </div>
-        <div class="line line1"></div>
-        <div class="dot dot1"></div>
+            <div class="line line{{ $htw->order }}"></div>
+            <div class="dot dot{{ $htw->order }}"></div>
+        @endforeach
 
         <!-- STEP 2 -->
-        <div class="step-box step2 row">
+        {{-- <div class="step-box step2 row">
             <div class="" style="display:flex;justify-content:center;align-items:center;">
                 <div class="col-2">
                     <span class="num">2</span>
@@ -1131,10 +1160,10 @@
             </div>
         </div>
         <div class="line line2"></div>
-        <div class="dot dot2"></div>
+        <div class="dot dot2"></div> --}}
 
         <!-- STEP 3 -->
-        <div class="step-box step3 row">
+        {{-- <div class="step-box step3 row">
             <div class="" style="display:flex;justify-content:center;align-items:center;">
                 <div class="col-2">
                     <span class="num">3</span>
@@ -1148,10 +1177,10 @@
             </div>
         </div>
         <div class="line line3"></div>
-        <div class="dot dot3"></div>
+        <div class="dot dot3"></div> --}}
 
         <!-- STEP 4 -->
-        <div class="step-box step4 row">
+        {{-- <div class="step-box step4 row">
             <div class="" style="display:flex;justify-content:center;align-items:center;">
                 <div class="col-2">
                     <span class="num">4</span>
@@ -1165,7 +1194,7 @@
             </div>
         </div>
         <div class="line line4"></div>
-        <div class="dot dot4"></div>
+        <div class="dot dot4"></div> --}}
 
     </section>
 
@@ -1185,81 +1214,43 @@
             </header>
 
             <div class="plans-grid">
-                <!-- Card 1 -->
-                <article class="plan-card">
-                    <div class="plan-top">One-Time Quick Fix</div>
-                    <div class="plan-body">
-                        <p class="plan-desc">Perfect for urgent, one-time help.</p>
+                <!-- Cards -->
+                @foreach ($plans as $pl)
+                    <article class="plan-card">
+                        <div class="plan-top">{{ $pl->title }}</div>
+                        <div class="plan-body">
+                            <p class="plan-desc">{{ $pl->description }}</p>
+                            <div class="price-wrap">
+                                <div class="price">{{ $pl->price }}</div>
+                            </div>
 
-                        <div class="price-wrap">
-                            <div class="price">AED 1,999</div>
+                            <ul class="plan-features">
+                                @foreach ($pl->features as $feature)
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <img src="{{ asset('images/charm_circle-tick.png') }}" alt="Urgent Icon"
+                                                    style="width:16px; height:16px; margin-right:6px; vertical-align:middle;">
+                                            </div>
+                                            <div class="col-10">
+                                                <p>
+
+                                                    {{ $feature->feature }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endforeach
+
+                            </ul>
+
+                            <a class="btn-book" href="#">Book Now</a>
                         </div>
-
-                        <ul class="plan-features">
-                            <li>
-                                <div class="row">
-                                    <div class="col-2">
-                                        <img src="{{ asset('images/charm_circle-tick.png') }}" alt="Urgent Icon"
-                                            style="width:16px; height:16px; margin-right:6px; vertical-align:middle;">
-                                    </div>
-                                    <div class="col-10">
-                                        <p>
-
-                                            Emergency repairs
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-2">
-                                        <img src="{{ asset('images/charm_circle-tick.png') }}" alt="Urgent Icon"
-                                            style="width:16px; height:16px; margin-right:6px; vertical-align:middle;">
-                                    </div>
-                                    <div class="col-10">
-                                        <p>
-
-                                            Emergency repairs
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-2">
-                                        <img src="{{ asset('images/charm_circle-tick.png') }}" alt="Urgent Icon"
-                                            style="width:16px; height:16px; margin-right:6px; vertical-align:middle;">
-                                    </div>
-                                    <div class="col-10">
-                                        <p>
-
-                                            Emergency repairs
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-2">
-                                        <img src="{{ asset('images/charm_circle-tick.png') }}" alt="Urgent Icon"
-                                            style="width:16px; height:16px; margin-right:6px; vertical-align:middle;">
-                                    </div>
-                                    <div class="col-10">
-                                        <p>
-
-                                            Emergency repairs
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-
-                        <a class="btn-book" href="#">Book Now</a>
-                    </div>
-                </article>
+                    </article>
+                @endforeach
 
                 <!-- Card 2 -->
-                <article class="plan-card">
+                {{-- <article class="plan-card">
                     <div class="plan-top">QwikCare Weekly</div>
                     <div class="plan-body">
                         <p class="plan-desc">Weekly comfort, consistent care.</p>
@@ -1329,10 +1320,10 @@
 
                         <a class="btn-book" href="#">Book Now</a>
                     </div>
-                </article>
+                </article> --}}
 
                 <!-- Card 3 -->
-                <article class="plan-card">
+                {{-- <article class="plan-card">
                     <div class="plan-top">QwikCare Monthly</div>
                     <div class="plan-body">
                         <p class="plan-desc">Convenient monthly service, tailored to your routine.</p>
@@ -1402,10 +1393,10 @@
 
                         <a class="btn-book" href="#">Book Now</a>
                     </div>
-                </article>
+                </article> --}}
 
                 <!-- Card 4 -->
-                <article class="plan-card">
+                {{-- <article class="plan-card">
                     <div class="plan-top">QwikCare Annual</div>
                     <div class="plan-body">
                         <p class="plan-desc">Year-round service, exclusive savings.</p>
@@ -1475,7 +1466,7 @@
 
                         <a class="btn-book" href="#">Book Now</a>
                     </div>
-                </article>
+                </article> --}}
             </div>
         </div>
     </section>
@@ -1610,23 +1601,23 @@
                             pay securely — all within the QwikHom app.</p>
 
                         <div class="app-download-buttons row">
-                            <div class=""
+                            <div class="downloadbuttons"
                                 style="display: flex;
         align-items: center;
-        justify-content: center;
+        /* justify-content: center; */
+        column-gap:50px;
     ">
 
 
-                                <div class="">
+                                <div class="col-lg-5 col-sm-12">
 
                                     <img src="{{ asset('assets/images/google_play.png') }}" alt="Get it on Google Play"
-                                        style="    width: 208px;
-        height: 86px;">
+                                        class="googleplaystoreimg" style="width: 208px;height: 61px;">
                                 </div>
 
                                 <div class="col-lg-5 col-sm-12">
-                                    <img src="{{ asset('assets/images/app_store.png') }}"
-                                        alt="Download on the App Store">
+                                    <img src="{{ asset('assets/images/app_store.png') }}" alt="Download on the App Store"
+                                        class="applestoreimg">
 
                                 </div>
                                 <div class="col-2">

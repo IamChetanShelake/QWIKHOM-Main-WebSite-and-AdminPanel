@@ -23,7 +23,7 @@ class ServicesController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $data = $request->only(['title', 'description', 'is_active']);

@@ -24,10 +24,10 @@ class HeroController extends Controller
         $request->validate([
             'main_title' => 'required',
             'description' => 'required',
-            'image1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image4' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'image4' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $data = $request->only(['main_title', 'description', 'is_active']);
